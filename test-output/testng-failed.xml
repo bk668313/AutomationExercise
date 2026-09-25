@@ -14,13 +14,14 @@
       </run>
     </groups>
     <classes>
-      <class name="testCases.TC01_Registration">
+      <class name="testCases.TC01_Login">
         <methods>
+          <include name="testInvalidPassword"/>
           <include name="tearDown"/>
+          <include name="testLogin"/>
           <include name="setup"/>
-          <include name="accountRegistrationTest"/>
         </methods>
-      </class> <!-- testCases.TC01_Registration -->
+      </class> <!-- testCases.TC01_Login -->
     </classes>
   </test> <!-- chromeTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

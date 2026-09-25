@@ -3,20 +3,31 @@ package pageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-public class homePage extends basePage {
+public class HomePage {
+	
+      WebDriver driver;
+	
+	public HomePage(WebDriver driver)
+	{
+		this.driver=driver;
+		PageFactory.initElements(driver, this);
+	}
+	
+	
+	@FindBy(xpath = "//a[contains(text(),'Signup / Login')]")
+    WebElement signupLogin;
 
-    public homePage(WebDriver driver) {
-        super(driver);
+    @FindBy(xpath = "//a[contains(text(),'Logged in as')]")
+    WebElement loggedInUser;
+
+    public void clickSignupLogin() {
+        signupLogin.click();
     }
 
-    @FindBy(xpath = "//a[normalize-space()='Register']")
-    WebElement clickRegister;
+    public boolean isLoggedIn() {
+        return loggedInUser.isDisplayed();
 
-    public registrationPage clickRegister() {
-
-        clickRegister.click();
-
-        return new registrationPage(driver);
-    }
+}
 }
