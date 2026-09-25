@@ -8,7 +8,7 @@
   
   
     <classes>
-     <class name="testCases.TC01_Registration"/>
+     <class name="testCases.TC01_Login"/>
       
     </classes>
   </test> <!-- Test -->
