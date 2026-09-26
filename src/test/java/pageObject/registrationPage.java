@@ -3,124 +3,122 @@ package pageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-public class registrationPage extends basePage {
-	
-	
-	public registrationPage(WebDriver driver)
-	{
-		super(driver);
-		
-	}
-	
-	
-	@FindBy(id="customer.firstName")
-	WebElement txtFirstName;
-	
-	// Last Name
-    @FindBy(id = "customer.lastName")
-    WebElement txtLastName;
+public class RegistrationPage {
 
-    // Address
-    @FindBy(id = "customer.address.street")
-    WebElement txtAddress;
+    WebDriver driver;
 
-    // City
-    @FindBy(id = "customer.address.city")
-    WebElement txtCity;
+    public RegistrationPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
 
-    // State
-    @FindBy(id = "customer.address.state")
-    WebElement txtState;
+    @FindBy(xpath = "//input[@data-qa='signup-name']")
+    WebElement name;
 
-    // Zip Code
-    @FindBy(id = "customer.address.zipCode")
-    WebElement txtZipCode;
+    @FindBy(xpath = "//input[@data-qa='signup-email']")
+    WebElement email;
 
-    // Phone Number
-    @FindBy(id = "customer.phoneNumber")
-    WebElement txtPhoneNumber;
+    @FindBy(xpath = "//button[@data-qa='signup-button']")
+    WebElement signupButton;
 
-    // SSN
-    @FindBy(id = "customer.ssn")
-    WebElement txtSSN;
+    @FindBy(xpath = "//input[@id='id_gender1']")
+    WebElement maleRadio;
 
-    // Username
-    @FindBy(id = "customer.username")
-    WebElement txtUsername;
+    @FindBy(xpath = "//input[@id='password']")
+    WebElement password;
 
-    // Password
-    @FindBy(id = "customer.password")
-    WebElement txtPassword;
+    @FindBy(xpath = "//select[@id='days']")
+    WebElement days;
 
-    // Confirm Password
-    @FindBy(id = "repeatedPassword")
-    WebElement txtConfirmPassword;
+    @FindBy(xpath = "//select[@id='months']")
+    WebElement months;
 
-    // Register button
-    @FindBy(xpath = "//input[@value='Register']")
-    WebElement btnRegister;
+    @FindBy(xpath = "//select[@id='years']")
+    WebElement years;
+
+    @FindBy(xpath = "//input[@id='first_name']")
+    WebElement firstName;
+
+    @FindBy(xpath = "//input[@id='last_name']")
+    WebElement lastName;
+
+    @FindBy(xpath = "//input[@id='address1']")
+    WebElement address;
+
+    @FindBy(xpath = "//input[@id='state']")
+    WebElement state;
+
+    @FindBy(xpath = "//input[@id='city']")
+    WebElement city;
+
+    @FindBy(xpath = "//input[@id='zipcode']")
+    WebElement zipcode;
+
+    @FindBy(xpath = "//input[@id='mobile_number']")
+    WebElement mobileNumber;
+
+    @FindBy(xpath = "//button[@data-qa='create-account']")
+    WebElement createAccount;
     
-    
-    @FindBy(xpath = "//p[contains(text(),'Your account was created successfully')]")
-    WebElement successMessage;
+    @FindBy(xpath = "//a[@data-qa='continue-button']")
+    WebElement continueButton;
 
+    public void enterName(String value) {
+        name.sendKeys(value);
+    }
 
-    //method
-    
-    public void enterFirstName(String firstname)
-    {
-    	txtFirstName.sendKeys(firstname);
+    public void enterEmail(String value) {
+        email.sendKeys(value);
+    }
+
+    public void clickSignup() {
+        signupButton.click();
+    }
+
+    public void selectMale() {
+        maleRadio.click();
+    }
+
+    public void enterPassword(String value) {
+        password.sendKeys(value);
+    }
+
+    public void enterFirstName(String value) {
+        firstName.sendKeys(value);
+    }
+
+    public void enterLastName(String value) {
+        lastName.sendKeys(value);
+    }
+
+    public void enterAddress(String value) {
+        address.sendKeys(value);
+    }
+
+    public void enterState(String value) {
+        state.sendKeys(value);
+    }
+
+    public void enterCity(String value) {
+        city.sendKeys(value);
+    }
+
+    public void enterZipcode(String value) {
+        zipcode.sendKeys(value);
+    }
+
+    public void enterMobileNumber(String value) {
+        mobileNumber.sendKeys(value);
+    }
+
+    public void clickCreateAccount() {
+        createAccount.click();
     }
     
-    public void enterLastName(String lastName) {
-        txtLastName.sendKeys(lastName);
-    }
-
-    public void enterAddress(String address) {
-        txtAddress.sendKeys(address);
-    }
-
-    public void enterCity(String city) {
-        txtCity.sendKeys(city);
-    }
-
-    public void enterState(String state) {
-        txtState.sendKeys(state);
-    }
-
-    public void enterZipCode(String zipCode) {
-        txtZipCode.sendKeys(zipCode);
-    }
-
-    public void enterPhoneNumber(String phoneNumber) {
-        txtPhoneNumber.sendKeys(phoneNumber);
-    }
-
-    public void enterSSN(String ssn) {
-        txtSSN.sendKeys(ssn);
-    }
-
-    public void enterUsername(String username) {
-        txtUsername.sendKeys(username);
-    }
-
-    public void enterPassword(String password) {
-        txtPassword.sendKeys(password);
-    }
-
-    public void enterConfirmPassword(String confirmPassword) {
-        txtConfirmPassword.sendKeys(confirmPassword);
-    }
-
-    public void clickRegister() {
-        btnRegister.click();
+    public void clickContinue() {
+        continueButton.click();
     }
     
-    public String getSuccessMessage() {
-        return successMessage.getText();
-    }
-
-    
-	
 }

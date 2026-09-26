@@ -10,7 +10,7 @@
   </run>
   </groups>
   
-  <listeners>
+  <listeners> 
 <listener class-name="utilities.ExtentListener"/>
 
 </listeners>
@@ -22,13 +22,12 @@
   
   
     <classes>
-       <class name="testCases.TC01_Registration"/>
+      
+     <!-- <class name="testCases.TC01_Login"/>-->
+      <class name="testCases.TC02_AddtoCart"/>
       
       
     </classes>
   </test> 
  
 </suite> 
-
-
-
